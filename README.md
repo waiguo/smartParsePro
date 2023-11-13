@@ -11,7 +11,7 @@
 # 智能识别收货地址Pro（支持省市区县街道/姓名/电话/邮编识别）
 ### 文档地址：[doc](http://wzhichao.gitee.io/smart-doc/) | [备用(gitee)](http://wzhichao.gitee.io/smartParse) |  [备用(语雀)](https://www.yuque.com/books/share/72418abc-287d-4a67-ae3c-dad10928c631?#) 
 
-### 在线预览： [示例一](https://wangzc.wang/smartParsePro/) [备用地址](http://wzhichao.gitee.io/smartparsepro/)
+### 在线预览： [示例一](http://47.97.123.182/smartParsePro) [备用地址](http://wzhichao.gitee.io/smartparsepro/)
 
 ![image.png](https://s2.ax1x.com/2020/01/02/lYkqdx.png)
 ## 地址数据来源(数据不对请更新此json)
