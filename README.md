@@ -9,7 +9,7 @@
   	  <a href="https://github.com/wzc570738205/smartParsePro"><img alt="GitHub forks" src="https://img.shields.io/github/forks/wzc570738205/smartParsePro?label=Fork&style=social"></a>
 </p>
 
-# 智能识别收货地址Pro（支持省市区县街道/姓名/电话/邮编识别）
+# 智能识别收货地址（支持省市区县街道/姓名/电话/邮编识别）
 ### 文档地址：[doc](http://wzhichao.gitee.io/smart-doc/) | [备用(gitee)](http://wzhichao.gitee.io/smartParse) |  [备用(语雀)](https://www.yuque.com/books/share/72418abc-287d-4a67-ae3c-dad10928c631?#) 
 
 ### 在线预览： [示例一](http://47.97.123.182/smartParsePro) [备用地址](http://wzhichao.gitee.io/smartparsepro/)
