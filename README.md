@@ -1,7 +1,7 @@
 <p align="center"><a href="http://wzhichao.gitee.io/smartparse/#/smartParse/fq" target="_blank" rel="noopener noreferrer"><img  src="http://wzhichao.gitee.io/smart-doc/images/logo.png" alt="smartparse logo"></a></p>
 
 ### `star` -`1k`后开源后端代码（支持地址更加丰富），快推荐给你身边的小伙伴使用吧
-[python版本](https://github.com/wzc570738205/smartParsePro-py)
+[💐python版本，结合自然语言处理、深度学习识别，识别率更加准确](https://github.com/wzc570738205/smartParsePro-py)
 
 <p align="center">
   <a href="https://www.npmjs.com/package/address-smart-parse"><img src="https://img.shields.io/npm/v/address-smart-parse.svg?sanitize=true" alt="Version"></a>
@@ -94,30 +94,12 @@ response：
     "list": [
         {
             "province": "新疆维吾尔自治区",
-            "provinceCode": "65",
-            "city": "阿克苏地区",
-            "cityCode": "6529",
-            "county": "温宿县",
-            "countyCode": "652922",
-            "street": "博孜墩柯尔克孜族乡",
-            "streetCode": "652922207",
-            "address": "吾斯塘博村一组306号",
-            "phone": "15035696956",
+            ...
             "name": "马云"
         },
         {
             "zipCode": "710061",
-            "county": "雁塔区",
-            "countyCode": "610113",
-            "province": "陕西省",
-            "provinceCode": "61",
-            "city": "西安市",
-            "cityCode": "6101",
-            "street": "丈八沟街道",
-            "streetCode": "610113007",
-            "address": "高新四路高新大都荟",
-            "name": "刘国良",
-            "phone": "13593464918",
+             ...
             "idCard": "211381198512096810"
         }
     ]
@@ -162,17 +144,6 @@ import smart from 'address-smart-parse'
 
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810")
 ```
-
-### 4.Python调用
-```
-import requests
-URL='https://wangzc.wang/smAddress'
-data=lambda x : r'{"address":"' + x + '"}'
-address=r'陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810' # address
-res=requests.post(url=URL,data=data(address).encode('utf-8'))
-print(res.json()) # output
-```
-
 
 ## 生成数据格式
 ```json
