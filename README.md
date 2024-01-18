@@ -182,8 +182,7 @@ smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟7100
 #### LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/master/LICENSE)
 #### IDE:致谢[JetBrains](https://www.jetbrains.com/?from=smartParsePro)为本项目提供免费license支持
 [![JetBrains](http://cdn.wangzc.wang/LOGO-1.png)](https://www.jetbrains.com/?from=smartParsePro)
-#### 联系我，欢迎交流
-<img src="https://user-images.githubusercontent.com/33707245/211184007-971089c8-bdea-4d99-80d9-78de2fd59e01.png" width="300px">
+
 
 #### qq交流群
 
