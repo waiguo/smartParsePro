@@ -132,15 +132,11 @@ import smart from 'address-smart-parse'
 ### 3.script引入
 [在codepen中在线预览](https://codepen.io/wzc570738205/pen/RwrjLbq)
 ```
-<script src="js/pcasCode.js"></script>
-<script src="js/zipCode.js"></script>
-<script src="js/address_parse.js"></script>
+//文件在dist中
+<script src="address_parse.min.js.js"></script>
 
 //jsdelivr
-<script src="https://cdn.jsdelivr.net/npm/address-smart-parse@1.0.0/pcasCode.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/address-smart-parse@1.0.0/zipCode.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/address-smart-parse@1.0.0/address_parse.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/address-smart-parse/js/address_parse.min.js"></script>
 
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810")
 ```

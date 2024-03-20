@@ -51,3 +51,5 @@ webpack/node_modules/*
 **/build/*
 
 **/gvmap/*
+
+**/.history/*

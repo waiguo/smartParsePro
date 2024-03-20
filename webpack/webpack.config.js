@@ -2,10 +2,9 @@ const path = require("path");
 const resolve = (dir) => path.join(__dirname, dir);
 
 module.exports = {
+  mode: 'production',
   entry: {
     address_parse: [
-      "../dist/pcasCode.js",
-      "../dist/zipCode.js",
       "../dist/address_parse.js",
     ],
   },
