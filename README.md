@@ -126,8 +126,10 @@ npm install address-smart-parse
 
 ```js
 import smart from 'address-smart-parse'
-
-// console.log(smart('xxxxxxx))
+/**
+ * string: 地址字符串参数
+ */
+smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810")
 ```
 ### 3.script引入
 [在codepen中在线预览](https://codepen.io/wzc570738205/pen/RwrjLbq)
