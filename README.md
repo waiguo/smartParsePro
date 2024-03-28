@@ -13,7 +13,8 @@
 
 ### 在线预览： [示例一](http://47.97.123.182/smartParsePro) [备用地址](http://wzhichao.gitee.io/smartparsepro/)
 
-![image.png](https://s2.ax1x.com/2020/01/02/lYkqdx.png)
+![image](https://github.com/wzc570738205/smartParsePro/assets/21350874/45b3ef67-7f7e-4ab6-81f0-f6d455a637cf)
+
 ### 地址数据来源(数据不对请更新此json)
 
 更新方法：将此json文件内容复制至同名js里的var pcassCode=xxxx;
