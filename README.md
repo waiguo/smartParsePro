@@ -138,7 +138,7 @@ smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟7100
 <script src="address_parse.min.js.js"></script>
 
 //jsdelivr
-<script src="https://cdn.jsdelivr.net/npm/address-smart-parse/js/address_parse.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/address-smart-parse/js/address_parseV2016.min.js"></script>
 
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810")
 ```
