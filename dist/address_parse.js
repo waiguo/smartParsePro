@@ -116,7 +116,7 @@ function smart(event) {
 window.smart = smart;
 
 function smatrAddress(event) {
-  smartObj = {}
+  var smartObj = {}
   let address = event
   //address=  event.replace(/\s/g, ''); //去除空格
   address = stripscript(address) //过滤特殊字符
