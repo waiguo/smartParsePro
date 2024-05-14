@@ -51,20 +51,27 @@
 ## 使用方法
 
 ### 1.api调用
->部署腾讯云，单IP调用3条/s限制，需要自行部署请[点击](http://wzhichao.gitee.io/smartparse/#/smartParse/fq)
->
->公共接口服务到期时间为2024-10-19 00:00,届时不再提供API服务(服务器太贵啦),底部联系作者可具体咨询
 
+
+```
+接口地址：[https://www.iamwawa.cn/nongli/api](https://wangzc.wang/smAddress)
+请求方式：post
+返回格式：json
+```
+
+> 单IP调用3条/s限制，需要自行部署请[点击](http://wzhichao.gitee.io/smartparse/#/smartParse/fq)
+>
+> 公共接口服务到期时间为2024-10-19 00:00,届时不再提供API服务(服务器太贵啦),底部联系作者可具体咨询
 
 ```js
 request url：https://wangzc.wang/smAddress
 request methods: POST
-
+//请求参数
 request payload: 
 
 {
-    "address": "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",
-    "addressList": [
+    "address": "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",//单条地址识别
+    "addressList": [//多条地址识别
         "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",
         "雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810"
     ]
