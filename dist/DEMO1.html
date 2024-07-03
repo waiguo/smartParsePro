@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./mysql.umd.js"></script>
+  </head>
+
+  <body>
+    <div id="adjustedSQL2"></div>
+  </body>
+  <script>
+    const textCase = [
+      {
+        desc:'没有查询',
+        originalSQL: `SELECT DATE_FORMAT(issue_created_time, '%Y-%u') AS 周, COUNT(*) AS 提出问题数, SUM(CASE WHEN status = '已解决' THEN 1 ELSE 0 END) AS 解决问题数 FROM on_site_issues WHERE NAME IS NOT NULL GROUP BY 周 ORDER BY 周;`,
+        selectedField: 'issue_created_time',
+        timeDimension: 'LAST_30_DAYS',
+      },
+      {
+        desc:'替换子查询的条件',
+        originalSQL: `SELECT * FROM on_site_issues WHERE actual_man_hours > (SELECT AVG(actual_man_hours) FROM on_site_issues WHERE product_line_name = '诺瓦云产品线');`,
+        selectedField: 'actual_man_hours',
+        timeDimension: 'LAST_30_DAYS',
+      },
+      {
+        desc:'在子查询后面追加',
+        originalSQL: `SELECT * FROM on_site_issues WHERE actual_man_hours > (SELECT AVG(actual_man_hours) FROM on_site_issues WHERE product_line_name = '诺瓦云产品线');`,
+        selectedField: 'time',
+        timeDimension: 'TODAY',
+      },
+      {
+        desc:'子查询IN',
+        originalSQL: `SELECT order_id, customer_id, order_date FROM orders WHERE customer_id IN (SELECT customer_id FROM orders GROUP BY customer_id HAVING COUNT(order_id) > 5);`,
+        selectedField: 'created_at',
+        timeDimension: 'THIS_MONTH',
+      },
+      {
+        desc:'子查询NOT IN',
+        originalSQL: `SELECT customer_id, customer_name FROM customers WHERE customer_id NOT IN (SELECT customer_id FROM orders WHERE product_id = 'specific_product_id');`,
+        selectedField: "modified_at",
+        timeDimension: "LAST_7_DAYS",
+      },
+      {
+        desc:'有查询替换条件',
+        originalSQL: `SELECT DATE_FORMAT(issue_created_time, '%Y-%u') AS 周, COUNT(*) AS 提出问题数, SUM(CASE WHEN status = '已解决' THEN 1 ELSE 0 END) AS 解决问题数 FROM on_site_issues GROUP BY 周 ORDER BY 周;`,
+        selectedField: 'created_at',
+        timeDimension: 'LAST_12_MONTHS',
+      },
+    ]
+
+    const TimeDimension = {
+      TODAY: 'TODAY',
+      LAST_7_DAYS: 'LAST_7_DAYS',
+      LAST_30_DAYS: 'LAST_30_DAYS',
+      THIS_MONTH: 'THIS_MONTH',
+      LAST_12_MONTHS: 'LAST_12_MONTHS',
+    }
+
+    function getTimeCondition(timeField, timeDimension) {
+      const today = new Date()
+      let startTime, endTime
+
+      switch (timeDimension) {
+        case TimeDimension.TODAY:
+          startTime = new Date(today.getFullYear(), today.getMonth(), today.getDate())
+          endTime = new Date(startTime.getTime() + 86400000) // 24 hours later
+          break
+        case TimeDimension.LAST_7_DAYS:
+          startTime = new Date(today.getTime() - 7 * 86400000) // 7 days ago
+          endTime = today
+          break
+        case TimeDimension.LAST_30_DAYS:
+          startTime = new Date(today.getTime() - 30 * 86400000) // 30 days ago
+          endTime = today
+          break
+        case TimeDimension.THIS_MONTH:
+          startTime = new Date(today.getFullYear(), today.getMonth(), 1)
+          endTime = new Date(today.getFullYear(), today.getMonth() + 1, 1)
+          break
+        case TimeDimension.LAST_12_MONTHS:
+          startTime = new Date(today.getFullYear(), today.getMonth() - 12, 1)
+          endTime = new Date(today.getFullYear(), today.getMonth(), 1)
+          break
+        default:
+          throw new Error('Invalid time dimension')
+      }
+
+      startTime = startTime.toISOString().split('T')[0]
+      endTime = endTime.toISOString().split('T')[0]
+
+      // return `${timeField} BETWEEN '${startTime}' AND '${endTime}'`;
+      return [
+        {
+          type: 'string',
+          value: startTime,
+        },
+        {
+          type: 'string',
+          value: endTime,
+        },
+      ]
+    }
+    textCase.forEach((item) => {
+      // 原始的 SQL 查询语句
+      const sqlQuery = item.originalSQL
+      // 使用正则表达式替换中文字符周围的引号
+      const modifiedQuery = sqlQuery.replace(/'([\u4e00-\u9fa5]+)'/g, '$1').replace(/([\u4e00-\u9fa5]+)/g, "'$1'")
+
+      const parser = new NodeSQLParser.Parser()
+      const ast = parser.astify(modifiedQuery)
+      console.log('ast: ', ast)
+
+      let newValue = {
+        type: 'expr_list',
+        value: getTimeCondition(item.selectedField, item.timeDimension),
+      }
+
+      const modifiedSQL = insertOrUpdateCondition(Array.isArray(ast) ? ast[0] : ast, item.selectedField, newValue)
+      const sql = parser.sqlify(modifiedSQL)
+      Console(item.desc,sqlQuery, item.selectedField, item.timeDimension, sql)
+    })
+    function Console(desc,originalSQL, selectedField, timeDimension, modifiedSQL) {
+      document.getElementById('adjustedSQL2').innerHTML += `<div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+        <div>原始SQL------ <b> ${desc}</b>:<br><code> ${originalSQL}</code></div>
+        <b>时间字段: ${selectedField}</b>
+        <b>时间维度: ${timeDimension}</b>
+        <div>调整SQL:<br><code> ${modifiedSQL}</code></div>
+      </div>`
+    }
+
+    function insertOrUpdateCondition(jsonObject, fieldName, newValue) {
+      // 查找是否存在指定字段的条件
+      function findAndModifyCondition(obj) {
+        if (obj.type === 'binary_expr' && obj.left && (obj.left.column === fieldName || obj.left.value === fieldName)) {
+          // 找到对应字段的条件，将右侧改为新值
+          obj.right = newValue
+          obj.operator = 'BETWEEN'
+          return true
+        } else if (obj.left && findAndModifyCondition(obj.left)) {
+          return true
+        } else if (obj.right && findAndModifyCondition(obj.right)) {
+          return true
+        }
+        return false
+      }
+
+      // 执行查找和修改操作
+      if (!findAndModifyCondition(jsonObject.where || {})) {
+        // 如果未找到对应字段的条件，则添加新的条件
+        if (!jsonObject.where) {
+          jsonObject.where = {
+            type: 'binary_expr',
+            operator: 'BETWEEN',
+            left: {
+              type: 'column_ref',
+              table: null,
+              column: fieldName,
+            },
+            right: newValue,
+          }
+        } else {
+          jsonObject.where = {
+            type: 'binary_expr',
+            operator: 'AND',
+            left: jsonObject.where,
+            right: {
+              type: 'binary_expr',
+              operator: 'BETWEEN',
+              left: {
+                type: 'column_ref',
+                table: null,
+                column: fieldName,
+              },
+              right: newValue,
+            },
+          }
+        }
+      }
+
+      return jsonObject
+    }
+  </script>
+</html>
