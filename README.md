@@ -122,6 +122,23 @@ axios({
   },
 }).then(function (res) {});
 ```
+### 1.1 基于[huggingface接口](https://huggingface.co/spaces/wzc2334234/address)调用
+```
+npm i -D @gradio/client
+```
+```js
+import { client } from "@gradio/client";
+
+client("wzc2334234/address").then((res) => {
+  res
+    .predict("/predict", [
+      "收货人: 李节霁 手机号码: 15180231234 所在地区: 浙江省金华市婺城区西关街道详细地址: 金磐路上坞街",
+    ])
+    .then((e) => {
+      console.log(JSON.parse(e.data[0]), "data");
+    });
+});
+```
 ### 2.NPM
 
 ```sh
