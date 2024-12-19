@@ -1,7 +1,7 @@
 <p align="center"><img  src="https://github.com/user-attachments/assets/08e56c19-08c2-4f33-8d88-39e001b2305d" alt="smartparse logo"></p>
 
 
-## [💐👉python版本，结合自然语言处理、深度学习识别，识别率更加准确](https://github.com/wzc570738205/smartParsePro-py)
+## [💐🎉👉python版本，结合自然语言处理、深度学习识别，识别率更加准确](https://github.com/wzc570738205/smartParsePro-py)
 
 <p align="center">
   <a href="https://www.npmjs.com/package/address-smart-parse"><img src="https://img.shields.io/npm/v/address-smart-parse.svg?sanitize=true" alt="Version"></a>
@@ -9,7 +9,7 @@
   	  <a href="https://github.com/wzc570738205/smartParsePro"><img alt="GitHub forks" src="https://img.shields.io/github/forks/wzc570738205/smartParsePro?label=Fork&style=social"></a>
 </p>
 
-# 智能识别收货地址（支持省市区县街道/姓名/电话/邮编识别）
+# 智能识别收货地址（支持🇨🇳省市区县街道/姓名/电话/邮编识别）
 
 ### [在线预览](http://47.97.123.182/smartParsePro) 
 
@@ -87,7 +87,7 @@ response：
 
 ```
 
-### 1.1 基于[huggingface接口](https://huggingface.co/spaces/wzc2334234/address)调用
+### 🌍1.1 基于[huggingface接口](https://huggingface.co/spaces/wzc2334234/address)调用
 ```
 npm i -D @gradio/client
 ```
@@ -105,6 +105,7 @@ client("wzc2334234/address").then((res) => {
 });
 ```
 ### 🌵2.NPM
+>🎉3.0版本更新，支持外部引入地址信息，减小包体积
 
 ```sh
 npm install address-smart-parse
@@ -139,43 +140,10 @@ smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟7100
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810")
 ```
 
-## 生成数据格式
-```json
-{
- "zipCode":"710061",
-
- "province":"陕西省",
-
- "provinceCode":"61",
-
- "city":"西安市",
-
- "cityCode":"6101",
-
- "county":"雁塔区",
-
- "countyCode":"610113",
-
- "street":"丈八沟街道",
-
- "streetCode":"610113007",
-
- "address":"高新四路高新大都荟",
-
- "name":"刘国良",
-
- "phone":"13593464918",
-
- "idCard":"211381198512096810"
-}
-```
-
-
 ##### 地址数据来源：[中华人民共和国行政区划](https://github.com/modood/Administrative-divisions-of-China)
 ##### 邮编数据来源：[中华人民共和国邮编](https://github.com/xieranmaya/china-city-area-zip-data/blob/master/china-city-area-zip.json)
 #### LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/master/LICENSE)
 
-<img  src="https://cdn.wangzc.wang/uPic/PI9Ygg.png" alt="smartparse logo" width='250'>
 
 #### qq交流群
 
