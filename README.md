@@ -43,14 +43,19 @@
 ### 1.api调用
 
 ```
-接口地址：[https://www.iamwawa.cn/nongli/api](https://wangzc.wang/smAddress)
-请求方式：post
+接口地址：[POST]https://wangzc.wang/smAddress
+请参数：{
+    "address": "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",//单条地址识别
+    "addressList": [//多条地址识别
+        "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",
+        "雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810"
+    ]
+}
 返回格式：json
 ```
 
-> 单IP调用3条/s限制，需要自行部署请[点击](http://wzhichao.gitee.io/smartparse/#/smartParse/fq)
->
-> 公共接口服务到期时间为2024-10-19 00:00,届时不再提供API服务(服务器太贵啦),底部联系作者可具体咨询
+> 单IP调用3条/s限制，自行部署可查看`./node`目录
+> 公共接口服务到期时间为2025-10-19 00:00
 
 ```js
 request url：https://wangzc.wang/smAddress
