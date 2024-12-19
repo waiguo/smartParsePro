@@ -11,7 +11,7 @@
 
 # 智能识别收货地址（支持省市区县街道/姓名/电话/邮编识别）
 
-### 在线预览： [示例一](http://47.97.123.182/smartParsePro) [备用地址](http://wzhichao.gitee.io/smartparsepro/)
+### [在线预览](http://47.97.123.182/smartParsePro) 
 
 ![image](https://github.com/wzc570738205/smartParsePro/assets/21350874/45b3ef67-7f7e-4ab6-81f0-f6d455a637cf)
 
