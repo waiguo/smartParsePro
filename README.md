@@ -127,7 +127,7 @@ import  {smart} from 'address-smart-parse'
 const myAddress = [...]// 数据格式请参考 https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/streets.json
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810", myAddress)
 ```
-### 3.script引入
+### 3.script引入(todo: 需支持地址信息外挂)
 [在codepen中在线预览](https://codepen.io/wzc570738205/pen/RwrjLbq)
 ```
 //文件在dist中
