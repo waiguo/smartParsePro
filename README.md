@@ -40,7 +40,7 @@
 ```
 ## 使用方法
 
-### 1.api调用
+### 🌏1.api调用
 > 单IP调用3条/s限制，自行部署可查看`./node`目录
 > 公共接口服务到期时间为2025-10-19 00:00
 
@@ -104,7 +104,7 @@ client("wzc2334234/address").then((res) => {
     });
 });
 ```
-### 2.NPM
+### 🌵2.NPM
 
 ```sh
 npm install address-smart-parse
@@ -127,7 +127,7 @@ import  {smart} from 'address-smart-parse'
 const myAddress = [...]// 数据格式请参考 https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/streets.json
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810", myAddress)
 ```
-### 3.script引入(todo: 需支持地址信息外挂)
+### 🌗3.script引入(todo: 需支持地址信息外挂)
 [在codepen中在线预览](https://codepen.io/wzc570738205/pen/RwrjLbq)
 ```
 //文件在dist中
