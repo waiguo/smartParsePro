@@ -1,4 +1,4 @@
-<p align="center"><a href="http://wzhichao.gitee.io/smartparse/#/smartParse/fq" target="_blank" rel="noopener noreferrer"><img  src="https://cdn.wangzc.wang/uPic/logo (2).png" alt="smartparse logo"></a></p>
+<p align="center"><img  src="[https://cdn.wangzc.wang/uPic/logo (2).png](https://github.com/user-attachments/assets/08e56c19-08c2-4f33-8d88-39e001b2305d)" alt="smartparse logo"></p>
 
 ### `star` -`1k`后开源后端代码（支持地址更加丰富），快推荐给你身边的小伙伴使用吧
 ## [💐👉python版本，结合自然语言处理、深度学习识别，识别率更加准确](https://github.com/wzc570738205/smartParsePro-py)
@@ -209,15 +209,13 @@ smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟7100
 ##### 地址数据来源：[中华人民共和国行政区划](https://github.com/modood/Administrative-divisions-of-China)
 ##### 邮编数据来源：[中华人民共和国邮编](https://github.com/xieranmaya/china-city-area-zip-data/blob/master/china-city-area-zip.json)
 #### LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/master/LICENSE)
-#### IDE:致谢[JetBrains](https://www.jetbrains.com/?from=smartParsePro)为本项目提供免费license支持
-[![JetBrains](http://cdn.wangzc.wang/LOGO-1.png)](https://www.jetbrains.com/?from=smartParsePro)
-
 
 <img  src="https://cdn.wangzc.wang/uPic/PI9Ygg.png" alt="smartparse logo" width='250'>
 
 #### qq交流群
 
-![WX20210922-091703.png](https://cdn.wangzc.wang/uPic/WX20210922-09170315%20.png)
+![image](https://github.com/user-attachments/assets/2f995a19-3826-4349-a191-886d0406d86b)
+
 
 #### Star History
 
