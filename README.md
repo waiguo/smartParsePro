@@ -1,6 +1,6 @@
 <p align="center"><img  src="https://github.com/user-attachments/assets/08e56c19-08c2-4f33-8d88-39e001b2305d" alt="smartparse logo"></p>
 
-### `star` -`1k`后开源后端代码（支持地址更加丰富），快推荐给你身边的小伙伴使用吧
+
 ## [💐👉python版本，结合自然语言处理、深度学习识别，识别率更加准确](https://github.com/wzc570738205/smartParsePro-py)
 
 <p align="center">
