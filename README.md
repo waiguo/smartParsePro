@@ -13,7 +13,8 @@
 
 ### [在线预览](http://47.97.123.182/smartParsePro) 
 
-![image](https://github.com/wzc570738205/smartParsePro/assets/21350874/45b3ef67-7f7e-4ab6-81f0-f6d455a637cf)
+![image](https://github.com/user-attachments/assets/ce252a73-5980-4154-a457-2b3701c8f51f)
+
 
 ### 支持以下数据格式
 #### 注意：地址、姓名、电话、邮编用空格或者特殊字符分开
