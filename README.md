@@ -153,7 +153,7 @@ npm install address-smart-parse
  * address 可不传，不传则默认识别到省/市/区县 三级信息
  * @returns <obj>
  */
-// 使用包自带的地址数据
+// 使用包自带的地址数据,这里务必引入address，将参数传入，不然只会识别到省市区县三级信息
 import  {smart, address} from 'address-smart-parse'
 smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810", address)
 
