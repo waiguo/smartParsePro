@@ -15,20 +15,10 @@
 
 ![image](https://github.com/wzc570738205/smartParsePro/assets/21350874/45b3ef67-7f7e-4ab6-81f0-f6d455a637cf)
 
-### 地址数据来源(数据不对请更新此json)
-
-更新方法：将此json文件内容复制至同名js里的var pcassCode=xxxx;
-
-[pcas-code.json(点击前往)](https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/pcas-code.json)
-
-### 港澳台地址
-
-参考[港澳台](https://github.com/modood/Administrative-divisions-of-China/issues/27) 可进行自整理
-
 ### 支持以下数据格式
 #### 注意：地址、姓名、电话、邮编用空格或者特殊字符分开
 
-特殊字符(可自行添加)：
+特殊字符：
 ```
 ~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“’。，、？-
 
@@ -52,7 +42,6 @@
 
 ### 1.api调用
 
-
 ```
 接口地址：[https://www.iamwawa.cn/nongli/api](https://wangzc.wang/smAddress)
 请求方式：post
@@ -66,9 +55,7 @@
 ```js
 request url：https://wangzc.wang/smAddress
 request methods: POST
-//请求参数
 request payload: 
-
 {
     "address": "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",//单条地址识别
     "addressList": [//多条地址识别
@@ -76,12 +63,9 @@ request payload:
         "雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810"
     ]
 }
-
 //address 字段为单条识别
 //addressList 字段为集合识别  返回在response的list字段中
-
 response： 
-
 {
     "province": "新疆维吾尔自治区",
     "provinceCode": "65",
@@ -110,18 +94,7 @@ response：
 }
 
 ```
-api使用推荐axios
-```js
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-axios({
-  method: "post",
-  url: "https://wangzc.wang/smAddress",
-  data: {
-    address: '广东省珠海市香洲区盘山路28号幸福茶庄,陈景勇，13593464918',
-  },
-}).then(function (res) {});
-```
 ### 1.1 基于[huggingface接口](https://huggingface.co/spaces/wzc2334234/address)调用
 ```
 npm i -D @gradio/client
