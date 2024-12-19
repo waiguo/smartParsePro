@@ -7,7 +7,7 @@ var port = 1399; // 服务端口；可自行修改
 var addressList = []; //地址列表
 var zipCodeList = []; //邮编列表
 let parsedData = {};
-let zipCode = {};
+let zipCode = [];
 
 try {
   parsedData = JSON.parse(fs.readFileSync("./address-code.json", "utf8"));
