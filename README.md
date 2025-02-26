@@ -1,117 +1,40 @@
-<p align="center"><img  src="https://github.com/user-attachments/assets/08e56c19-08c2-4f33-8d88-39e001b2305d" alt="smartparse logo"></p>
-
-
-## [💐🎉👉python版本，结合自然语言处理、深度学习识别，识别率更加准确](https://github.com/wzc570738205/smartParsePro-py)
-
 <p align="center">
-  <a href="https://www.npmjs.com/package/address-smart-parse"><img src="https://img.shields.io/npm/v/address-smart-parse.svg?sanitize=true" alt="Version"></a>
-  <a href="https://github.com/wzc570738205/smartParsePro"><img src="https://img.shields.io/github/stars/wzc570738205/smartParsePro?style=social" alt="stars"></a>
-  	  <a href="https://github.com/wzc570738205/smartParsePro"><img alt="GitHub forks" src="https://img.shields.io/github/forks/wzc570738205/smartParsePro?label=Fork&style=social"></a>
+  <img src="https://github.com/user-attachments/assets/08e56c19-08c2-4f33-8d88-39e001b2305d" alt="smartparse logo" width="300">
 </p>
 
-# 智能识别收货地址（支持🇨🇳省市区县街道/姓名/电话/邮编识别）
+<h3 align="center">智能解析中文地址 · 支持省市区县/姓名/电话/邮编提取</h3>
 
-### [🧷在线预览](http://47.97.123.182/smartParsePro) 
+<div align="center">
+  <a href="https://www.npmjs.com/package/address-smart-parse">
+    <img src="https://img.shields.io/npm/v/address-smart-parse.svg?color=blue&label=NPM" alt="npm version">
+  </a>
+  <a href="https://github.com/wzc570738205/smartParsePro">
+    <img src="https://img.shields.io/github/stars/wzc570738205/smartParsePro?style=social" alt="GitHub Stars">
+  </a>
+  <a href="https://wangzc.wang/smAddress">
+    <img src="https://img.shields.io/badge/API-Live-green" alt="Live API">
+  </a>
+</div>
 
-![image](https://github.com/user-attachments/assets/ce252a73-5980-4154-a457-2b3701c8f51f)
+---
 
+### 🚀 核心功能
+- **精准识别**：结合NLP与深度学习，支持省市区县街道四级解析
+- **多格式兼容**：支持中文地址、姓名、电话、邮编混合文本的智能拆分
+- **灵活接入**：提供API、NPM、Script三种集成方式
+- **数据完备**：基于最新行政区划数据，支持外部数据扩展
 
-### 支持以下数据格式
-#### 注意：地址、姓名、电话、邮编用空格或者特殊字符分开
+[👉 Python版本（更高准确率）](https://github.com/wzc570738205/smartParsePro-py) 
 
-特殊字符：
-```
-~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“’。，、？-
+[🌐 在线演示](http://47.97.123.182/smartParsePro)
 
-```
-### js支持地址格式
-```
-1. 广东省珠海市香洲区盘山路28号幸福茶庄,陈景勇，13593464918
-2. 马云，陕西省西安市雁塔区丈八沟街道高新四路高新大都荟  13593464918
-3. 陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918
-4. 西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918
-5. 雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918
-6. 收货人: 李节霁
-手机号码: 15180231234
-所在地区: 浙江省金华市婺城区西关街道
-详细地址: 金磐路上坞街
-7. 收货人: 马云
-手机号码: 150-3569-6956
-详细地址: 河北省石家庄市新华区中华北大街68号鹿城商务中心6号楼1413室
-```
-## 使用方法
+---
 
-### 🌏1.api调用
-> 单IP调用3条/s限制，自行部署可查看`./node`目录
-> 公共接口服务到期时间为2025-10-19 00:00
-
-```js
-request url：https://wangzc.wang/smAddress
-request methods: POST
-request payload: 
-{
-    "address": "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",//单条地址识别
-    "addressList": [//多条地址识别
-        "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",
-        "雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810"
-    ]
-}
-//address 字段为单条识别
-//addressList 字段为集合识别  返回在response的list字段中
-response： 
-{
-    "province": "新疆维吾尔自治区",
-    "provinceCode": "65",
-    "city": "阿克苏地区",
-    "cityCode": "6529",
-    "county": "温宿县",
-    "countyCode": "652922",
-    "street": "博孜墩柯尔克孜族乡",
-    "streetCode": "652922207",
-    "address": "吾斯塘博村一组306号",
-    "phone": "15035696956",
-    "name": "马云",
-    "requestNumber": 7,
-    "list": [
-        {
-            "province": "新疆维吾尔自治区",
-            ...
-            "name": "马云"
-        },
-        {
-            "zipCode": "710061",
-             ...
-            "idCard": "211381198512096810"
-        }
-    ]
-}
-
-```
-
-### 🌍1.1 基于[huggingface接口](https://huggingface.co/spaces/wzc2334234/address)调用
-```
-npm i -D @gradio/client
-```
-```js
-import { client } from "@gradio/client";
-
-client("wzc2334234/address").then((res) => {
-  res
-    .predict("/predict", [
-      "收货人: 李节霁 手机号码: 15180231234 所在地区: 浙江省金华市婺城区西关街道详细地址: 金磐路上坞街",
-    ])
-    .then((e) => {
-      console.log(JSON.parse(e.data[0]), "data");
-    });
-});
-```
-### 🌵2.NPM
->🎉3.0版本更新，支持外部引入地址信息，减小包体积 2024/12/19
-
-```sh
+### 📦 快速开始
+#### 1. NPM安装
+```bash
 npm install address-smart-parse
 ```
-
 ```js
 /**
  * smart 解析地址
@@ -126,33 +49,62 @@ smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟7100
 
 // 使用自己的数据
 import  {smart} from 'address-smart-parse'
-const myAddress = [...]// 数据格式请参考 https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/streets.json
-smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810", myAddress)
+import customAddressData from './custom-streets.json';
+// 数据格式请参考 https://github.com/modood/Administrative-divisions-of-China/blob/master/dist/streets.json
+smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810", customAddressData)
 ```
-### 🌗3.script引入(todo: 需支持地址信息外挂)
-[在codepen中在线预览](https://codepen.io/wzc570738205/pen/RwrjLbq)
+#### 2. API调用
+```bash
+POST https://wangzc.wang/smAddress
+{
+  "address": "浙江省金华市婺城区西关街道金磐路15180231234 李节霁",
+  # 多条地址
+  "addressList": [ 
+        "新疆阿克苏温宿县博孜墩柯尔克孜族乡吾斯塘博村一组306号 150-3569-6956 马云",
+        "雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810"
+  ]
+}
+
+# 响应（200ms内）
+{
+  "province": "浙江省",
+  "city": "金华市",
+  "county": "婺城区",
+  "street": "西关街道",
+  "address": "金磐路",
+  "phone": "15180231234",
+  "name": "李节霁"
+}
 ```
-//文件在dist中
-<script src="address_parse.min.js.js"></script>
-
-//jsdelivr
-<script src="https://cdn.jsdelivr.net/npm/address-smart-parse/js/address_parseV2017.min.js"></script>
-
-smart("陕西省西安市雁塔区丈八沟街道高新四路高新大都荟710061 刘国良 13593464918 211381198512096810")
+#### 📌 支持格式
+```text
+1. 组合式：广东省珠海市香洲区盘山路28号 陈景勇 13593464918
+2. 无分隔符：马云 河北省石家庄新华区中华北大街68号鹿城商务中心6号楼1413室
+3. 含特殊字符：收货人:李节霁 | 手机:151-8023-1234 | 地址:浙江省金华市婺城区西关街道
+4. 短地址：雁塔区高新四路710061 刘国良
 ```
+#### 🛠️ 高级用法
+[huggingface接口](https://huggingface.co/spaces/wzc2334234/address)
+```js
+import { client } from "@gradio/client";
 
-##### 地址数据来源：[中华人民共和国行政区划](https://github.com/modood/Administrative-divisions-of-China)
-##### 邮编数据来源：[中华人民共和国邮编](https://github.com/xieranmaya/china-city-area-zip-data/blob/master/china-city-area-zip.json)
-#### LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/master/LICENSE)
+client("wzc2334234/address").predict("/predict", ["地址文本"]).then(res => {
+  console.log(JSON.parse(res.data[0]));
+});
+```
+#### 📚 数据来源
 
+地址数据：[中华人民共和国行政区划](https://github.com/modood/Administrative-divisions-of-China)
 
-#### qq交流群
+邮编数据：[中华人民共和国邮编](https://github.com/xieranmaya/china-city-area-zip-data/blob/master/china-city-area-zip.json)
+
+LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/master/LICENSE)
+
+#### 📮 社区支持
 
 ![image](https://github.com/user-attachments/assets/2f995a19-3826-4349-a191-886d0406d86b)
 
 
-#### Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=wzc570738205/smartParsePro&type=Date)](https://star-history.com/#wzc570738205/smartParsePro&Date)
-
 
