@@ -108,3 +108,12 @@ LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/ma
 
 [![Star History Chart](https://api.star-history.com/svg?repos=wzc570738205/smartParsePro&type=Date)](https://star-history.com/#wzc570738205/smartParsePro&Date)
 
+#### 商用授权
+<img width="314" alt="image" src="https://github.com/user-attachments/assets/aac5f491-23e8-4a2f-a4b6-dca7ee97bff3" />
+
+本人为个人开发者，精力和经济都有限，如有公司或个人想要商业使用，联系微信捐赠200即可。
+
+如未授权，根据软件使用协议，请务必保留官方版权。前后台页底必须保留 "Powered by smartParsePro！" 文字和链接！如未按要求保留官方版权且未授权用户，将依法追究法律责任。
+
+鼓励大学毕业生在此开源项目基础上进行毕业设计项目开发，但请遵守开源协议并添加自己的开发和创新内容，且论文中应明确标注源码的来源；拿来就用主义者视为侵权。
+
