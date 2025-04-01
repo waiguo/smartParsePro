@@ -103,7 +103,6 @@ client("wzc2334234/address").predict("/predict", ["地址文本"]).then(res => {
 
 邮编数据：[中华人民共和国邮编](https://github.com/xieranmaya/china-city-area-zip-data/blob/master/china-city-area-zip.json)
 
-LICENSE：[Apache License](https://github.com/wzc570738205/smartParsePro/blob/master/LICENSE)
 
 #### 📮 社区支持
 
