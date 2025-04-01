@@ -1,4 +1,4 @@
-# 地址智能识别使用文档
+# 地址智能识别node后端接口使用文档
 
 #### 介绍
 地址智能识别是通过 中华人民共和国行政区划提供的数据进行前端静态地址匹配分析的轻量化解析项目，初步面向物流/快递等涉及到地址处理的使用场景，可以把用户的详细地址切分为对应的省市区、姓名、电话等等。
@@ -12,7 +12,7 @@
 
 1.  服务器安装node环境
 ```sh
-curl -sL https://rpm.nodesource.com/setup_10.x | sudo bash -
+curl -sL https://rpm.nodesource.com/setup_14.x | sudo bash -
 ```
 ```sh
 sudo yum install nodejs
